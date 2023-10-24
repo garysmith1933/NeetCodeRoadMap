@@ -27,4 +27,4 @@ class Solution:
           return True
       return False
     
-    #Time O(nlog(m * n)) #Space O(1)
+    #Time O((m * log(n)) #Space O(1)
