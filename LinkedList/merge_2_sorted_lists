@@ -28,3 +28,5 @@ class Solution:
           tail.next = current1
         
         return head.next
+    
+    # Time O(N + M) Space O( N + M)
