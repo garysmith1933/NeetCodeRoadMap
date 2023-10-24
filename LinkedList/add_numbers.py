@@ -1,32 +1,29 @@
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        current1 = l1
-        num1 = ""
+        dummy = ListNode()
+        cur = dummy
+        carry = 0
 
-        current2 = l2
-        num2 = ""
+        #while either list has numbers or a carry still exists after computing the numbers from the list
+        while l1 or l2 or carry:
+          #check if the numbers are present, if one is null give it a default of -
+          v1 = l1.val if l1 else 0
+          v2 = l2.val if l2 else 0
 
-        while current1 is not None:
-          num1 += str(current1.val)
-          current1 = current1.next
-  
-        while current2 is not None:
-          num2 += str(current2.val)
-          current2 = current2.next
-      
-        num1 = int(num1[::-1])
-        num2 = int(num2[::-1])
+          #calculate the sum of the current numbers, if its over 10
+          val = v1 + v2 + carry
+          print(carry, carry // 10)
+          # if the value is 15, the carry is 1, 15 goes into 10 1 time
+          carry = val // 10
+          # if the value is 15, after this it is 5 since 5 is left over after 15 goes into 10
+          val = val % 10
 
-        total = str(num1 + num2)
-        total = total[::-1]
-        print(total)
+          cur.next = ListNode(val)
+          cur = cur.next
 
-        head = ListNode(0)
-        tail = head
-
-        for i in range(0, len(total)):
-          tail.next = ListNode(total[i])
-          tail = tail.next
-          
+          l1 = l1.next if l1 else None
+          l2 = l2.next if l2 else None
         
-        return head.next
+        return dummy.next
+    
+    # Time O(max(N, M) # Space O(max(N, M))
