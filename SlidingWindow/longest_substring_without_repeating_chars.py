@@ -13,7 +13,7 @@ class Solution:
                 seen.remove(s[l])
                 l += 1
             seen.add(s[r])
-            length = r - 1 + 1 # cancels out O based indexing
+            length = r - l + 1 # cancels out O based indexing
             res = max(res, length)
             r += 1
         return res
