@@ -17,4 +17,23 @@ class Solution:
     
         return sorted(visited)[k-1]
     
-    #Time O(N * Log(N))
+    #Time O(N * Log(N)) Space O(N) - BRUTE FORCE
+
+
+    # class Solution:
+    # def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+    #  n = 0
+    #  stack = []
+    #  curr = root
+
+    #  while stack or curr:
+    #     while curr:
+    #         stack.append(curr)
+    #         curr = curr.left
+    #     curr = stack.pop()
+    #     n+=1
+    #     if n == k:
+    #         return curr.val
+    #     curr = curr.right
+
+    #     #Time O(N) #Space O(1) - OPTIMAL

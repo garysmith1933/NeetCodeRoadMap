@@ -17,6 +17,6 @@ class Solution:
                   # when it breaks, compare the length of it, to the current longest length. assign it to which is more.
                 longest = max(longest, length)
         return longest
-    #Time O(N) Space O(1)
+    #Time O(N) Space O(N)
     
     
