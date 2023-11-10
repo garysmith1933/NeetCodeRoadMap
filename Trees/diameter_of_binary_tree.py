@@ -12,3 +12,5 @@ class Solution:
         
         dfs(root)
         return res
+    
+  #Time O(N) Space O(N)
