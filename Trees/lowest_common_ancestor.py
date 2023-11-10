@@ -12,4 +12,4 @@ class Solution:
             else:
                 return root
             
-            #Time Space 
+            #Time O(Log N) - worst case visit 1 node for every level of the tree  Space O(1)
