@@ -4,7 +4,6 @@ class Solution:
     @return: encodes a list of strings to a single string.
     """
     def encode(self, strs):
-      4#neet
         res = ''
 
         for s in strs:
@@ -22,7 +21,7 @@ class Solution:
 
         for i in range(len(str)):
             j = i
-            while j != '#'
+            while j != '#':
                 j += 1
             
             length = int(str[i:j])
