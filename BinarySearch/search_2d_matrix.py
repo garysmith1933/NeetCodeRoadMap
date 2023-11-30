@@ -1,30 +1,38 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-      # m is the matrix, n is the number of rows
-      # iterate over both matrix and rows 
-      # at each row, create 2 pointers. Check if the target is within the range of the pointers.
-      # if it is not, move on to next row and check there.
-      # if it is, check if the target in that row and return if it is found in there or not.
+      ROWS, COLS = len(matrix), len(matrix[0])
 
-      for m in range(len(matrix)):
-        row = matrix[m]
-        l, r = 0, len(row) - 1
-        if row[l] <= target and row[r] >= target:
-            return self.search(row, target)
+      top, bot = 0, ROWS - 1
+
+      while top <= bot:
+        row = (top + bot) // 2
+
+        if target > matrix[row][-1]:
+          top = row + 1
+        
+        elif target < matrix[row][0]:
+          bot = row - 1
+
         else:
-          continue
-      return False
+          break 
+      
+      if not (top <= bot):
+        return False
+            
+      row = (top + bot) // 2
+      l, r = 0, COLS - 1
 
-    def search(self, row:List[int], target: int) -> bool:
-      l, r = 0, len(row) - 1
       while l <= r:
-        m = (l + r) // 2
-        if row[m] > target:
+        m =  (l + r) // 2
+
+        if matrix[row][m] < target:
+          l = m + 1
+          
+        elif matrix[row][m] > target:
           r = m - 1
-        elif row[m] < target:
-          l = m + 1  
+          
         else:
           return True
+
       return False
-    
-    #Time O((m * log(n)) #Space O(1)
+      # O(log(m * n)) the number of rows in the matrix, the length of each row. Space O(1)
