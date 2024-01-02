@@ -1,28 +1,25 @@
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-      slow, fast = head, head.next
+       # split list into two halfs
+        slow, fast = head, head.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
 
-      while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-      
-      second = slow.next 
-      slow.next = None
-      prev = None
-      
-      #reverse second half
-      while second:
-        temp = second.next
-        second.next = prev
-        prev = second
-        second = temp
+        second_half = slow.next # the beginning of the second half once the fast pointer reaches the end.
+        prev = slow.next = None 
 
-      # merge two halfs
-      first, second = head, prev
-      while second:
-        temp1, temp2 = first.next, second.next
-        first.next = second
-        second.next = temp1
-        first = temp1
-        second = temp2
-# Time O(N) Space O(1)
+        while second_half: # reverse second half
+           temp = second_half.next
+           second_half.next = prev
+           prev = second_half
+           second_half = temp
+        # the prev pointer is the beginning of the new second half.
+
+        first, second = head, prev
+        while second: # merge two halfs
+           temp1, temp2 = first.next, second.next
+           first.next = second
+           second.next = temp1
+
+           first, second = temp1, temp2 
