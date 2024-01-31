@@ -43,3 +43,5 @@ class Solution:
   
       
       return islands
+# Time O(r * c) Space O(N)
+  
