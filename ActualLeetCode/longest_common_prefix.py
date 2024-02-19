@@ -6,10 +6,7 @@ class Solution:
                 if len(string) < len(smallest):
                     smallest = string
             return smallest
-        
-        min_word = shortest(strs)
-        prefixes = []
-            
+
         def prefix(string):
             pfix = ""
             for i in range(len(min_word)):
@@ -18,6 +15,9 @@ class Solution:
                     return pfix
                 pfix += char
             return pfix
+        
+        min_word = shortest(strs)
+        prefixes = []
 
         for string in strs:
             prefixes.append(prefix(string))
