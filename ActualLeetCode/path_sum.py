@@ -3,13 +3,7 @@ class Solution:
         if not root: # empty root
             return False
     
-        def dfs(root, total):
-            if not root:
-                return total == targetSum
-            
-            total += root.val
-
-            return dfs(root.left, total) or dfs(root.right, total)
+        if not root.left and not root.right:
+            return targetSum == root.val
         
-        return dfs(root, 0)
-        
+        return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(root.right, targetSum - root.val)
