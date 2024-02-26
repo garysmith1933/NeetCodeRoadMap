@@ -10,7 +10,7 @@
 #         return maxSum
 #         #Time O(n2) # Space O(1)
 
-class Solution:
+class Solution: # Optimal
     def maxSubArray(self, nums: List[int]) -> int:
         maxSub = nums[0]
         curSum = 0

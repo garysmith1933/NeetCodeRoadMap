@@ -10,7 +10,7 @@
 #         return res
 
 #         # Time O(n + m)
-#         # Space O(n + min(n,m))
+#         # Space O(n)
   
 
 class Solution:
@@ -28,4 +28,4 @@ class Solution:
         return res
 
         # Time O(N + M)
-        # Space O(N, min(n, m))
+        # Space O(N)
